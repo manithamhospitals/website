@@ -22125,6 +22125,288 @@ body {
   justify-content: center;
 }
 
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.navbar-brand img {
+  height: 75px;   /* tweak between 60–80px */
+  width: auto;
+}
+
+.brand-text h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #c2185b; /* match your exact pink */
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.brand-text p {
+  font-size: 12px;
+  color: #444;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.brand-text {
+  font-family: 'Oswald', sans-serif;
+}
+
+.brand-text h1 {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.5px; /* important for that spaced look */
+  color: #c2185b;
+}
+
+.brand-text p {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: #555;
+}
+
 /*============= CASE STUDY CSS AREA ENDS ===============*/
 /*============= PRICING CSS AREA ===============*/
-/*============= PRICING CSS AREA ===============*//*# sourceMappingURL=main.css.map */
+/*============= PRICING CSS AREA ===============*/
+.homepage4-body .navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.homepage4-body .navbar-brand img {
+  width: 82px;
+  height: 82px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  flex-shrink: 0;
+}
+
+.homepage4-body .brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.05;
+}
+
+.homepage4-body .brand-text h1 {
+  margin: 0;
+  color: #c2185b;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.homepage4-body .brand-text p {
+  margin: 6px 0 0;
+  color: #444;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.6px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@media (min-width: 992px) {
+  .homepage4-body .vl-transparent-header .container {
+    max-width: 1320px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .homepage4-body .vl-transparent-header .row-bg1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: nowrap;
+    padding: 12px 22px 12px 18px;
+  }
+  .homepage4-body .vl-transparent-header .row-bg1 > .col-lg-2,
+  .homepage4-body .vl-transparent-header .row-bg1 > .col-lg-5 {
+    width: auto;
+    flex: 0 0 auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .homepage4-body .vl-transparent-header .row-bg1 > .col-lg-2 {
+    margin-right: 8px;
+  }
+  .homepage4-body .vl-transparent-header .row-bg1 > .col-lg-5.d-none.d-lg-block {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  .homepage4-body .vl-main-menu {
+    padding-left: 8px;
+  }
+  .homepage4-body .vl-main-menu ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 18px;
+    width: 100%;
+    text-align: left;
+    flex-wrap: nowrap;
+  }
+  .homepage4-body .vl-main-menu ul > li {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+  .homepage4-body .vl-main-menu ul > li > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0;
+    white-space: nowrap;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 991px) {
+  .homepage4-body .navbar-brand {
+    gap: 10px;
+  }
+  .homepage4-body .navbar-brand img {
+    width: 60px;
+    height: 60px;
+  }
+  .homepage4-body .brand-text h1 {
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+  .homepage4-body .brand-text p {
+    margin-top: 4px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+}
+
+@media (max-width: 767px) {
+  .homepage4-body .navbar-brand img {
+    width: 52px;
+    height: 52px;
+  }
+  .homepage4-body .brand-text h1 {
+    font-size: 15px;
+  }
+  .homepage4-body .brand-text p {
+    font-size: 9px;
+    letter-spacing: 1.1px;
+  }
+}
+
+.department-doctor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.department-doctor-card {
+  border: 1px solid #e7edf3;
+  border-radius: 18px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 14px 35px rgba(1, 15, 28, 0.08);
+}
+
+.department-doctor-card__image img {
+  width: 100%;
+  aspect-ratio: 4 / 4.2;
+  object-fit: cover;
+  display: block;
+}
+
+.department-doctor-card__content {
+  padding: 18px;
+}
+
+.department-doctor-card__content h4 {
+  margin: 0;
+  color: #02015a;
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+.department-doctor-card__credentials,
+.department-doctor-card__specialty {
+  margin: 10px 0 0;
+  color: #5f6672;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.department-doctor-card__specialty {
+  color: #c2185b;
+  font-weight: 600;
+}
+
+.department-doctor-card__cta {
+  width: 100%;
+  margin-top: 18px;
+  text-align: center;
+  justify-content: center;
+}
+
+.owl-carousel {
+  position: relative;
+}
+
+.owl-carousel .owl-dots {
+  display: none !important;
+}
+
+.owl-carousel .owl-nav {
+  display: block !important;
+}
+
+.owl-carousel .owl-nav button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 52px !important;
+  width: 52px !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  background: #ffffff !important;
+  color: #02015a !important;
+  box-shadow: 0 12px 30px rgba(2, 1, 90, 0.16);
+  transition: all 0.3s ease;
+  z-index: 5;
+}
+
+.owl-carousel .owl-nav button.owl-prev {
+  left: -26px !important;
+}
+
+.owl-carousel .owl-nav button.owl-next {
+  right: -26px !important;
+}
+
+.owl-carousel .owl-nav button:hover {
+  background: #c2185b !important;
+  color: #ffffff !important;
+}
+
+@media (max-width: 991px) {
+  .owl-carousel .owl-nav button.owl-prev {
+    left: 10px !important;
+  }
+
+  .owl-carousel .owl-nav button.owl-next {
+    right: 10px !important;
+  }
+}
+/*# sourceMappingURL=main.css.map */
