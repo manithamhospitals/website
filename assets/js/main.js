@@ -133,6 +133,74 @@ function initHoverActive() {
 }
 initHoverActive();
 
+function initTestimonialReviews() {
+  var reviewSelector = '.testimonial4-boxarea .review-text';
+
+  function setReviewerInitials() {
+    $('.testimonial4-boxarea').each(function () {
+      var $card = $(this);
+      var reviewerName = $.trim($card.find('.reviewer-name').text());
+      var initial = reviewerName ? reviewerName.charAt(0).toUpperCase() : '?';
+      $card.find('.review-initial').text(initial);
+    });
+  }
+
+  function moveReviewerDetailsToTop() {
+    $('.testimonial4-boxarea').each(function () {
+      var $card = $(this);
+      var $textArea = $card.find('.text-area').first();
+      var $review = $card.find('.review-text').first();
+
+      if (!$textArea.length || !$review.length || $textArea.prev()[0] === $card.find('.space16').first()[0]) {
+        return;
+      }
+
+      $textArea.insertBefore($review);
+    });
+  }
+
+  function updateReviewOverflow() {
+    $(reviewSelector).each(function (index) {
+      var $review = $(this);
+      var reviewId = $review.attr('id') || 'testimonial-review-' + index;
+      var $existingButton = $review.siblings('.read-more-btn');
+
+      $review.attr('id', reviewId).removeClass('expanded');
+
+      if ($existingButton.length) {
+        $existingButton.remove();
+      }
+
+      if (this.scrollHeight <= this.clientHeight + 1) {
+        return;
+      }
+
+      var $button = $('<button type="button" class="read-more-btn" aria-expanded="false">Read more</button>');
+      $button.attr('aria-controls', reviewId);
+      $review.after($button);
+    });
+  }
+
+  moveReviewerDetailsToTop();
+  setReviewerInitials();
+  updateReviewOverflow();
+
+  $(document).on('click', '.testimonial4-boxarea .read-more-btn', function () {
+    var $button = $(this);
+    var $review = $button.siblings('.review-text');
+    var isExpanded = $review.hasClass('expanded');
+
+    $review.toggleClass('expanded', !isExpanded);
+    $button.attr('aria-expanded', String(!isExpanded));
+    $button.text(isExpanded ? 'Read more' : 'Read less');
+  });
+
+  $(window).on('load resize', updateReviewOverflow);
+  $('.testimonial4-slider-area').on('initialized.owl.carousel translated.owl.carousel refreshed.owl.carousel resized.owl.carousel', updateReviewOverflow);
+}
+
+initTestimonialReviews();
+
 });
 //========== COUNTER UP============= //
 function initCounterUp() {
@@ -840,4 +908,35 @@ jQuery(document).ready(function($){
           (label.offset().left > resizeElement.offset().left + resizeElement.outerWidth()) ? label.removeClass('is-hidden') : label.addClass('is-hidden');
       }
   }
+  
+  //========== NAVIGATION HIGHLIGHT AREA ============= //
+  function initNavHighlight() {
+      const path = window.location.pathname;
+      const page = path.split("/").pop() || 'index.html';
+      const navLinks = document.querySelectorAll('.vl-main-menu ul li a');
+
+      navLinks.forEach(link => {
+          const href = link.getAttribute('href');
+          
+          // Reset highlights
+          link.classList.remove('active');
+
+          // Highlight current page
+          if (href === page || (page === 'index.html' && href === 'index.html')) {
+              link.classList.add('active');
+          }
+
+          // Special handling for subdomains/external absolute links
+          if (href.startsWith('http') && window.location.href.includes(href)) {
+              link.classList.add('active');
+          }
+
+          // Click handler for immediate feedback
+          link.addEventListener('click', function() {
+              navLinks.forEach(l => l.classList.remove('active'));
+              this.classList.add('active');
+          });
+      });
+  }
+  initNavHighlight();
 });
